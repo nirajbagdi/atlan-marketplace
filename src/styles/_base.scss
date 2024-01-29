@@ -1,0 +1,24 @@
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+html::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	min-height: 100vh;
+
+	font-family: 'Source Sans 3', sans-serif;
+	font-size: 1.6rem;
+	color: #555;
+}
