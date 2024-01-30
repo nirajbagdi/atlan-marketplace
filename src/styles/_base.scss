@@ -1,32 +1,5 @@
-html {
-	box-sizing: border-box;
-	font-size: 62.5%;
-}
-
-*,
-*::before,
-*::after {
-	box-sizing: inherit;
-	margin: 0;
-	padding: 0;
-}
-
-html::-webkit-scrollbar {
-	display: none;
-}
-
-body {
-	min-height: 100vh;
-
-	font-family: 'Source Sans 3', sans-serif;
-	font-size: 1.6rem;
-	color: #555;
-
-	background: #fafafa;
-}
-
-.container {
-	max-width: 120rem;
-	margin-inline: auto;
-	padding: 5.2rem 2.4rem 4.8rem 2.4rem;
+@mixin centered-flex($gap: 1.8rem) {
+	display: flex;
+	align-items: center;
+	gap: $gap;
 }

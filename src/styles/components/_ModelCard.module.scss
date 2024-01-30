@@ -1,27 +1,19 @@
+@import 'styles/base';
+
 .card {
-	cursor: pointer;
 	max-width: 35rem;
 
 	border-radius: 35px;
-	padding: 4.8rem 3.2rem 3.2rem 3.2rem;
+	background-color: #fff;
+	padding: 4.8rem 3.2rem 3.2rem;
+
+	cursor: pointer;
 	box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-
-	letter-spacing: 0.3px;
-	background: #fff;
-
 	transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 
 	&:hover {
-		transform: scale(1.02) translateZ(0);
+		transform: scale(1.02);
 		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-	}
-
-	&:nth-child(3n + 2) {
-		transform: translateY(8rem);
-
-		&:hover {
-			transform: scale(1.02) translateY(8rem);
-		}
 	}
 }
 
@@ -38,32 +30,22 @@
 }
 
 .summary {
-	color: #555;
 	font-size: 1.8rem;
 	margin-block: 1.6rem 2.4rem;
 }
 
 .stats {
-	display: flex;
-	align-items: center;
-	gap: 1.8rem;
+	@include centered-flex;
 
-	p {
+	.heart,
+	.download {
+		@include centered-flex(0.8rem);
+
 		color: #a4a4a4;
 		font-weight: 500;
 		font-size: 1.4rem;
 
-		display: flex;
-		align-items: center;
-		gap: 0.8rem;
-
-		&.heart svg {
-			color: #c75454;
-			width: 1.8rem;
-		}
-
-		&.download svg {
-			color: #a4a4a4;
+		svg {
 			width: 1.8rem;
 		}
 	}
