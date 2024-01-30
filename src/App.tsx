@@ -1,9 +1,2 @@
-import ModelCard from 'components/ModelCard';
-
-const App: React.FC = () => (
-	<div className="container">
-		<ModelCard />
-	</div>
-);
-
+const App: React.FC = () => <div className="container">Hello Word</div>;
 export default App;

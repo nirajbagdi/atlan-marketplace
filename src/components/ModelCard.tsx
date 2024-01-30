@@ -5,6 +5,18 @@ import { ReactComponent as IconHeart } from 'assets/icon-heart.svg';
 
 import styles from 'styles/components/_ModelCard.module.scss';
 
+type Props = {
+	model: {
+		name: string;
+		category: string;
+		summary: string;
+		stats: {
+			likes: string;
+			downloads: string;
+		};
+	};
+};
+
 const variants: Variants = {
 	hover: {
 		scale: 1.02,
@@ -18,25 +30,22 @@ const variants: Variants = {
 	tap: { scale: 0.98 },
 };
 
-const ModelCard: React.FC = () => (
+const ModelCard: React.FC<Props> = ({ model }) => (
 	<motion.article variants={variants} whileHover="hover" whileTap="tap" className={styles.card}>
 		<header>
-			<p className={styles.name}>Transformers</p>
-			<span className={styles.category}>Creative</span>
+			<p className={styles.name}>{model.name}</p>
+			<span className={styles.category}>{model.category}</span>
 		</header>
 
-		<p className={styles.summary}>
-			State-of-the-art ML for Pytorch,
-			<br /> TensorFlow, and JAX.
-		</p>
+		<p className={styles.summary}>{model.summary}</p>
 
 		<div className={styles.stats}>
 			<p className={styles.heart}>
-				<IconHeart /> 21, 366
+				<IconHeart /> {model.stats.likes}
 			</p>
 
 			<p className={styles.download}>
-				<IconDownload /> 300+
+				<IconDownload /> {model.stats.downloads}
 			</p>
 		</div>
 	</motion.article>
