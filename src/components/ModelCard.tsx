@@ -8,8 +8,7 @@ import styles from 'styles/components/_ModelGrid.module.scss';
 
 type Props = {
 	model: TModel;
-	masonry?: boolean;
-	shouldTranslate: boolean;
+	shouldTranslate?: boolean;
 };
 
 const motionVariants: Variants = {
@@ -23,16 +22,12 @@ const motionVariants: Variants = {
 		},
 	},
 
-	tap: {
-		scale: 0.98,
-	},
+	tap: { scale: 0.98 },
 };
 
-const ModelCard: React.FC<Props> = ({ model, masonry, shouldTranslate }) => (
+const ModelCard: React.FC<Props> = ({ model, shouldTranslate }) => (
 	<motion.article
-		initial={{
-			translateY: masonry && shouldTranslate ? '6.4rem' : '0',
-		}}
+		initial={{ translateY: shouldTranslate ? '6.4rem' : '0' }}
 		variants={motionVariants}
 		whileHover="hover"
 		whileTap="tap"
