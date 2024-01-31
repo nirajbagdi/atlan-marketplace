@@ -25,8 +25,15 @@ body {
 	background: #fafafa;
 }
 
+button {
+	font: inherit;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
 .container {
 	max-width: 120rem;
 	margin-inline: auto;
-	padding: 5.2rem 2.4rem 15rem 2.4rem;
+	padding: 2rem 2.4rem 15rem 2.4rem;
 }
