@@ -1,37 +1,43 @@
 import { Variants, motion, cubicBezier } from 'framer-motion';
 
+import { TModel } from 'models';
 import { ReactComponent as IconDownload } from 'assets/icon-download.svg';
 import { ReactComponent as IconHeart } from 'assets/icon-heart.svg';
 
-import styles from 'styles/components/_ModelCard.module.scss';
+import styles from 'styles/components/_ModelGrid.module.scss';
 
 type Props = {
-	model: {
-		name: string;
-		category: string;
-		summary: string;
-		stats: {
-			likes: string;
-			downloads: string;
-		};
-	};
+	model: TModel;
+	masonry?: boolean;
+	shouldTranslate: boolean;
 };
 
-const variants: Variants = {
+const motionVariants: Variants = {
 	hover: {
 		scale: 1.02,
 		boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+
 		transition: {
 			duration: 1,
 			ease: cubicBezier(0.165, 0.84, 0.44, 1),
 		},
 	},
 
-	tap: { scale: 0.98 },
+	tap: {
+		scale: 0.98,
+	},
 };
 
-const ModelCard: React.FC<Props> = ({ model }) => (
-	<motion.article variants={variants} whileHover="hover" whileTap="tap" className={styles.card}>
+const ModelCard: React.FC<Props> = ({ model, masonry, shouldTranslate }) => (
+	<motion.article
+		initial={{
+			translateY: masonry && shouldTranslate ? '6.4rem' : '0',
+		}}
+		variants={motionVariants}
+		whileHover="hover"
+		whileTap="tap"
+		className={styles.card}
+	>
 		<header>
 			<p className={styles.name}>{model.name}</p>
 			<span className={styles.category}>{model.category}</span>

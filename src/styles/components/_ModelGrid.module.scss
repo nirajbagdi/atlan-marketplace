@@ -1,5 +1,13 @@
 @import 'styles/base';
 
+.grid {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fit, 35rem);
+
+	gap: 2.4rem;
+}
+
 .card {
 	max-width: 35rem;
 

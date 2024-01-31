@@ -1,0 +1,267 @@
+[
+	{
+		"id": 1,
+		"name": "transcribe_it",
+		"category": "Speech & Language",
+		"summary": "Accurate real-time text from spoken audio.",
+		"potentialUseCases": ["Meeting minutes", "Interviews", "Dictation", "Accessibility tools"],
+		"provider": "VerbaLingua",
+		"featured": false,
+		"stats": {
+			"likes": 1234,
+			"downloads": 5678
+		}
+	},
+	{
+		"id": 2,
+		"name": "sentiment_sense",
+		"category": "Text & NLP",
+		"summary": "Uncover emotions and opinions in text data.",
+		"potentialUseCases": [
+			"Customer feedback analysis",
+			"Market research",
+			"Brand monitoring",
+			"Content personalization"
+		],
+		"provider": "SentiSense",
+		"featured": false,
+		"stats": {
+			"likes": 890,
+			"downloads": 2345
+		}
+	},
+	{
+		"id": 3,
+		"name": "video_styler",
+		"category": "Video & Multimedia",
+		"summary": "Apply artistic styles to video footage.",
+		"potentialUseCases": [
+			"Filmmaking",
+			"Social media content",
+			"Music videos",
+			"Artistic expression"
+		],
+		"provider": "VidioFX",
+		"featured": false,
+		"stats": {
+			"likes": 4567,
+			"downloads": 9012
+		}
+	},
+	{
+		"id": 4,
+		"name": "MedScan AI",
+		"category": "Healthcare & Science",
+		"summary": "Extract insights and potential abnormalities from medical scans.",
+		"potentialUseCases": [
+			"Early disease detection",
+			"Medical research",
+			"Personalized medicine",
+			"Workflow efficiency"
+		],
+		"provider": "HealthAI",
+		"featured": false,
+		"stats": {
+			"likes": 1789,
+			"downloads": 3579
+		}
+	},
+	{
+		"id": 5,
+		"name": "code_craft",
+		"category": "Development & Productivity",
+		"summary": "Generate code or autocomplete tasks based on natural language.",
+		"potentialUseCases": [
+			"Software development",
+			"Prototyping",
+			"Coding assistance",
+			"Bug fixing"
+		],
+		"provider": "CodeCraft",
+		"featured": false,
+		"stats": {
+			"likes": 2345,
+			"downloads": 4567
+		}
+	},
+	{
+		"id": 6,
+		"name": "video_express",
+		"category": "Video & Multimedia",
+		"summary": "Automatically edit videos for engaging content.",
+		"potentialUseCases": [
+			"Social media videos",
+			"Marketing materials",
+			"Educational content",
+			"Vlogs"
+		],
+		"provider": "VidiMagic",
+		"featured": false,
+		"stats": {
+			"likes": 5890,
+			"downloads": 10234
+		}
+	},
+	{
+		"id": 7,
+		"name": "recommender",
+		"category": "E-commerce & Retail",
+		"summary": "Personalized product recommendations for shoppers.",
+		"potentialUseCases": [
+			"Increased sales",
+			"Customer engagement",
+			"Website personalization",
+			"Inventory optimization"
+		],
+		"provider": "ShopSmart",
+		"featured": false,
+		"stats": {
+			"likes": 2567,
+			"downloads": 7890
+		}
+	},
+	{
+		"id": 8,
+		"name": "AskNow",
+		"category": "Text & NLP",
+		"summary": "Informative answers to any question from vast knowledge.",
+		"potentialUseCases": [
+			"Virtual assistants",
+			"Customer support",
+			"Educational tools",
+			"Research assistance"
+		],
+		"provider": "KnowItAll",
+		"featured": true,
+		"stats": {
+			"likes": 4900,
+			"downloads": 9345
+		}
+	},
+	{
+		"id": 9,
+		"name": "world_speak",
+		"category": "Communication & Collaboration",
+		"summary": "Real-time translation between diverse languages.",
+		"potentialUseCases": [
+			"Travel & tourism",
+			"Business & international relations",
+			"Accessibility & education",
+			"Content creation & localization"
+		],
+		"provider": "GlobalVoice",
+		"featured": false,
+		"stats": {
+			"likes": 7234,
+			"downloads": 12567
+		}
+	},
+	{
+		"id": 10,
+		"name": "fake_news",
+		"category": "Text & NLP",
+		"summary": "Identify misleading information in text.",
+		"potentialUseCases": [
+			"News aggregators",
+			"Social media platforms",
+			"Educational resources",
+			"Research tools"
+		],
+		"provider": "TruthFinder",
+		"featured": true,
+		"stats": {
+			"likes": 3178,
+			"downloads": 6423
+		}
+	},
+	{
+		"id": 11,
+		"name": "cyber_shield",
+		"category": "Security & IT",
+		"summary": "Identify and protect against cyber threats in real-time.",
+		"potentialUseCases": [
+			"Network security",
+			"Endpoint protection",
+			"Incident response",
+			"Fraud prevention"
+		],
+		"provider": "GuardNet",
+		"featured": false,
+		"stats": {
+			"likes": 2090,
+			"downloads": 5345
+		}
+	},
+	{
+		"id": 12,
+		"name": "learn_smart",
+		"category": "Education & Training",
+		"summary": "Tailored learning experience based on individual needs.",
+		"potentialUseCases": [
+			"Adaptive learning platforms",
+			"Personalized tutoring",
+			"Skill development",
+			"Performance tracking"
+		],
+		"provider": "LearnSmart",
+		"featured": true,
+		"stats": {
+			"likes": 4789,
+			"downloads": 8234
+		}
+	},
+	{
+		"id": 13,
+		"name": "assistant",
+		"category": "Productivity & Workflow",
+		"summary": "Automate repetitive tasks with voice commands.",
+		"potentialUseCases": [
+			"Meeting scheduling",
+			"Email management",
+			"Calendar updates",
+			"Information retrieval"
+		],
+		"provider": "AssistMe",
+		"featured": false,
+		"stats": {
+			"likes": 1678,
+			"downloads": 4123
+		}
+	},
+	{
+		"id": 14,
+		"name": "Explainable AI",
+		"category": "Machine Learning & AI",
+		"summary": "Transparent decision-making process for AI models.",
+		"potentialUseCases": [
+			"Risk assessment",
+			"Regulatory compliance",
+			"Bias detection",
+			"Model improvement"
+		],
+		"provider": "OpenAI",
+		"featured": false,
+		"stats": {
+			"likes": 3456,
+			"downloads": 1234
+		}
+	},
+	{
+		"id": 15,
+		"name": "Explainable AI",
+		"category": "Machine Learning & AI",
+		"summary": "Transparent decision-making process for AI models.",
+		"potentialUseCases": [
+			"Risk assessment",
+			"Regulatory compliance",
+			"Bias detection",
+			"Model improvement"
+		],
+		"provider": "OpenAI",
+		"featured": false,
+		"stats": {
+			"likes": 3456,
+			"downloads": 1234
+		}
+	}
+]
