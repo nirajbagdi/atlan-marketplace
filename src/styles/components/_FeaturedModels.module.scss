@@ -1,6 +1,8 @@
 @import 'styles/base';
 
 .featured {
+	margin-bottom: 9.6rem;
+
 	& > header {
 		@include centered-flex(2rem);
 
