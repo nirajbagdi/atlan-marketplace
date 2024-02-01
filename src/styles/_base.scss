@@ -1,3 +1,11 @@
+$font: 'Source Sans 3', sans-serif;
+
+$bg: #fafafa;
+$text: #5f6368;
+$text-dim: #777;
+$primary: #202124;
+$secondary: #fff;
+
 @mixin centered-flex($gap: 1.8rem) {
 	display: flex;
 	align-items: center;

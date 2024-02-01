@@ -18,11 +18,11 @@ html::-webkit-scrollbar {
 body {
 	min-height: 100vh;
 
-	font-family: 'Source Sans 3', sans-serif;
+	font-family: $font;
 	font-size: 1.6rem;
-	color: #555;
+	color: $text;
 
-	background: #fafafa;
+	background: $bg;
 }
 
 button {
