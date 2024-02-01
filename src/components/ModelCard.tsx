@@ -1,8 +1,8 @@
 import { Variants, motion, cubicBezier } from 'framer-motion';
 
 import { TModel } from 'models';
-import { ReactComponent as IconDownload } from 'assets/icon-download.svg';
-import { ReactComponent as IconHeart } from 'assets/icon-heart.svg';
+import { ReactComponent as DownloadIcon } from 'assets/download-icon.svg';
+import { ReactComponent as HeartIcon } from 'assets/heart-icon.svg';
 
 import styles from 'styles/components/_ModelGrid.module.scss';
 
@@ -42,11 +42,11 @@ const ModelCard: React.FC<Props> = ({ model, shouldTranslate }) => (
 
 		<div className={styles.stats}>
 			<p className={styles.heart}>
-				<IconHeart /> {model.stats.likes}
+				<HeartIcon /> {model.stats.likes}
 			</p>
 
 			<p className={styles.download}>
-				<IconDownload /> {model.stats.downloads}
+				<DownloadIcon /> {model.stats.downloads}
 			</p>
 		</div>
 	</motion.article>

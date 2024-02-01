@@ -1,4 +1,4 @@
-import { ReactComponent as IconPlus } from 'assets/icon-plus.svg';
+import { ReactComponent as PlusIcon } from 'assets/plus-icon.svg';
 import { ReactComponent as LandingIllustration } from 'assets/landing-illustration.svg';
 
 import styles from 'styles/components/_Header.module.scss';
@@ -14,7 +14,7 @@ const Header = () => (
 			</p>
 
 			<button>
-				<IconPlus />
+				<PlusIcon />
 				New Model
 			</button>
 		</div>
