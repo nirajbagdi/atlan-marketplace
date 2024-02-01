@@ -13,7 +13,10 @@ const AllModels: React.FC<Props> = ({ models }) => (
 	<section className={styles.models}>
 		<header>
 			<FilterTags />
-			<p>{models.length} Results</p>
+
+			<p>
+				Models <span>{models.length}</span>
+			</p>
 		</header>
 
 		<ModelsGrid masonry models={models} />

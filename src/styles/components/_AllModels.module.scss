@@ -2,6 +2,7 @@
 
 .models {
 	position: relative;
+	margin-top: 6.4rem;
 
 	&::before {
 		content: '';
@@ -16,13 +17,19 @@
 	}
 
 	& > header {
-		margin-bottom: 2.4rem;
+		margin-bottom: 2.2rem;
 
 		p {
 			font-size: 2.4rem;
 			font-weight: 600;
 			color: $primary;
 			letter-spacing: 0.2px;
+
+			@include centered-flex(2rem);
+
+			span {
+				color: #686868;
+			}
 		}
 	}
 }
