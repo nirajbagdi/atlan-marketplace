@@ -1,0 +1,23 @@
+@import 'styles/base';
+
+.featured {
+	& > header {
+		@include centered-flex(2rem);
+
+		h3 {
+			font-size: 2.2rem;
+			font-weight: 600;
+			letter-spacing: 0.2px;
+			color: rgb(32, 33, 36);
+		}
+
+		svg {
+			width: 3rem;
+			height: 3rem;
+		}
+	}
+
+	& > .items {
+		margin-top: 2.6rem;
+	}
+}

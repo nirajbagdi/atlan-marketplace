@@ -18,7 +18,7 @@ const Masonry: React.FC<Props> = ({ children, className }) => {
 		const updateNoOfColumns = () => {
 			const container = containerRef.current;
 			const containerWidth = container!.offsetWidth;
-			const cardWidth = 350;
+			const cardWidth = container!.children[0].clientWidth;
 
 			const numColumns = Math.floor(containerWidth / cardWidth);
 			setNoOfColumns(numColumns);
