@@ -1,22 +1,9 @@
-import Header from 'components/Header';
-import AllModels from 'components/AllModels';
-import FeaturedModels from 'components/FeaturedModels';
+import Home from 'pages/Home';
 
-import modelsData from 'data/models.json';
-
-const App: React.FC = () => {
-	const featuredModels = modelsData.filter(model => model.featured);
-
-	return (
-		<div className="container">
-			<Header />
-
-			<main>
-				<FeaturedModels models={featuredModels} />
-				<AllModels models={modelsData} />
-			</main>
-		</div>
-	);
-};
+const App: React.FC = () => (
+	<div className="container">
+		<Home />
+	</div>
+);
 
 export default App;

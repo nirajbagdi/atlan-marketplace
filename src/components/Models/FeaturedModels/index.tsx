@@ -1,5 +1,6 @@
 import { TModel } from 'models';
-import ModelsGrid from './ModelsGrid';
+
+import ModelsGrid from 'components/Models/ModelsGrid';
 import { ReactComponent as FeaturedIcon } from 'assets/featured-icon.svg';
 
 import styles from 'styles/components/_FeaturedModels.module.scss';

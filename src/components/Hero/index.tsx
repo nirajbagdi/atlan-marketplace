@@ -1,10 +1,10 @@
 import { ReactComponent as PlusIcon } from 'assets/plus-icon.svg';
 import { ReactComponent as LandingIllustration } from 'assets/landing-illustration.svg';
 
-import styles from 'styles/components/_Header.module.scss';
+import styles from 'styles/components/_Hero.module.scss';
 
-const Header = () => (
-	<header className={styles.header}>
+const Hero = () => (
+	<header className={styles.hero}>
 		<div className={styles.content}>
 			<h2>Models</h2>
 
@@ -14,8 +14,7 @@ const Header = () => (
 			</p>
 
 			<button>
-				<PlusIcon />
-				New Model
+				<PlusIcon /> New Model
 			</button>
 		</div>
 
@@ -25,4 +24,4 @@ const Header = () => (
 	</header>
 );
 
-export default Header;
+export default Hero;

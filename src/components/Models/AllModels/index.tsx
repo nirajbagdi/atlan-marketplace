@@ -1,6 +1,7 @@
 import { TModel } from 'models';
-import ModelsGrid from 'components/ModelsGrid';
-import FilterTags from 'components/FilterTags';
+
+import ModelsGrid from 'components/Models/ModelsGrid';
+import FilterTags from './FilterTags';
 
 import styles from 'styles/components/_AllModels.module.scss';
 

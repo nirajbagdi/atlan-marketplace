@@ -1,6 +1,7 @@
 import { Variants, motion, cubicBezier } from 'framer-motion';
 
 import { TModel } from 'models';
+
 import { ReactComponent as DownloadIcon } from 'assets/download-icon.svg';
 import { ReactComponent as HeartIcon } from 'assets/heart-icon.svg';
 
