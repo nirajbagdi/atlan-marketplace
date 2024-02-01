@@ -1,0 +1,52 @@
+@import 'styles/base';
+
+.tags {
+	margin-bottom: 3.2rem;
+
+	@include centered-flex(1.2rem);
+	flex-wrap: wrap;
+}
+
+.tag {
+	color: $primary;
+	background: $secondary;
+	box-shadow: 0 0 0 1px #dadce0;
+
+	padding: 0.4rem 1.4rem;
+	border-radius: 100px;
+
+	cursor: pointer;
+	user-select: none;
+
+	transition: all 0.3s ease;
+
+	&:not(.active):hover,
+	&:not(.active):active {
+		box-shadow: 0 0 0 1px $primary;
+	}
+
+	&.active {
+		color: $secondary;
+		background: $primary;
+
+		svg {
+			stroke: $secondary;
+
+			path {
+				fill: $secondary;
+			}
+		}
+	}
+
+	@include centered-flex(1.2rem);
+
+	svg {
+		width: 1.6rem;
+		height: auto;
+		stroke: $primary;
+
+		path {
+			fill: $primary;
+		}
+	}
+}
