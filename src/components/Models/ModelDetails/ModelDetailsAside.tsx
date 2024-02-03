@@ -20,15 +20,17 @@ const ModelDetailsAside: React.FC<Props> = ({ model }) => (
 				</div>
 			</div>
 
-			<div className={styles.type}>
-				<span className={styles.label}>Use Cases:</span>
+			{model.useCases.length > 0 && (
+				<div className={styles.type}>
+					<span className={styles.label}>Use Cases:</span>
 
-				<div className={styles.tags}>
-					{model.useCases.map(useCase => (
-						<span key={useCase}>{useCase}</span>
-					))}
+					<div className={styles.tags}>
+						{model.useCases.map(useCase => (
+							<span key={useCase}>{useCase}</span>
+						))}
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 
 		<div className={styles.statsSection}>

@@ -3,10 +3,12 @@ import { TModel } from 'models';
 
 type ContextState = {
 	models: TModel[];
+	addModel: (modelObj: TModel) => void;
 };
 
 const initialState: ContextState = {
 	models: [],
+	addModel: modelObj => {},
 };
 
 export const AppContext = createContext(initialState);

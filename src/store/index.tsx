@@ -18,7 +18,11 @@ const AppProvider: React.FC<Props> = ({ children }) => {
 		})();
 	}, []);
 
-	const contextValue = { models };
+	const addModel = (modelObj: TModel) => {
+		setModels(prevModels => [modelObj, ...prevModels]);
+	};
+
+	const contextValue = { models, addModel };
 	return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 };
 
