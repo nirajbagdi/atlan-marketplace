@@ -1,16 +1,17 @@
 import { useParams } from 'react-router-dom';
 
+import { useAppCtx } from 'store/context';
+
 import Breadcrumb from 'components/Layout/Breadcrumb';
 import ModelDetails from 'components/Models/ModelDetails';
-
-import modelsData from 'data/models.json';
 
 import styles from 'styles/components/_ModelDetails.module.scss';
 
 const SingleModel = () => {
 	const { modelSlug } = useParams();
+	const { models } = useAppCtx();
 
-	const model = modelsData.find(model => model.slug === modelSlug);
+	const model = models.find(model => model.slug === modelSlug);
 	if (!model) return null;
 
 	const breadcrumbLinks = [
@@ -21,7 +22,7 @@ const SingleModel = () => {
 	return (
 		<div className={styles.container}>
 			<Breadcrumb links={breadcrumbLinks} />
-			<ModelDetails model={model} />
+			<ModelDetails model={model!} />
 		</div>
 	);
 };
