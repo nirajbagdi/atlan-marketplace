@@ -17,8 +17,7 @@ const FilterTags: React.FC<Props> = ({ onUpdateResults }) => {
 
 	useEffect(() => {
 		onUpdateResults(filters);
-		// eslint-disable-next-line
-	}, [filters]);
+	}, [filters, onUpdateResults]);
 
 	const handleFilterSelect = (filterName: string) => {
 		setFilters(prevFilters =>

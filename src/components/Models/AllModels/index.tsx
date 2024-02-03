@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import { TModel } from 'models';
 
@@ -18,10 +18,14 @@ const AllModels: React.FC<Props> = ({ models }) => {
 		setFilteredModels(models);
 	}, [models]);
 
-	const handleUpdateResults = (filterNames: string[]) => {
-		const filtered = models.filter(model => filterNames.includes(model.category));
-		setFilteredModels(filtered.length ? filtered : models);
-	};
+	const handleUpdateResults = useCallback(
+		(filterNames: string[]) => {
+			const filtered = models.filter(model => filterNames.includes(model.category));
+			setFilteredModels(filtered.length ? filtered : models);
+		},
+
+		[models]
+	);
 
 	return (
 		<section className={styles.models}>
