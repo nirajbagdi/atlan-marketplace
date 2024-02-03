@@ -3,9 +3,11 @@ export type TModel = {
 	name: string;
 	category: string;
 	summary: string;
+	description: string;
 	provider: string;
+	codeSnippet: string;
+	useCases: string[];
 	featured: boolean;
-	potentialUseCases: string[];
 
 	stats: {
 		likes: number;
