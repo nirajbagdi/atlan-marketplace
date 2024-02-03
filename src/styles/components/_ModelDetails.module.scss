@@ -1,0 +1,133 @@
+@import 'styles/base';
+
+.model {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 9.6rem 5.6rem;
+
+	@media (max-width: 1100px) {
+		grid-template-columns: 100%;
+	}
+}
+
+.model header {
+	position: relative;
+
+	grid-row: 1;
+	grid-column: 1/-1;
+
+	&::before {
+		content: '';
+
+		position: absolute;
+		bottom: -5rem;
+		left: 0;
+		width: 100%;
+		height: 1px;
+
+		background-color: #e5e5e5;
+	}
+
+	h1 {
+		color: $primary;
+		font-size: 3.6rem;
+		letter-spacing: 0.2px;
+	}
+
+	span {
+		color: $text-dim;
+	}
+
+	p {
+		font-size: 1.8rem;
+		margin-top: 3.6rem;
+	}
+}
+
+.model .aside {
+	h3 {
+		color: $primary;
+		font-size: 2rem;
+		margin-bottom: 1.6rem;
+	}
+
+	.statsSection {
+		margin-top: 5.2rem;
+	}
+
+	.type {
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		.tags {
+			@include centered-flex(1.2rem);
+			flex-wrap: wrap;
+
+			span {
+				display: inline-block;
+				cursor: pointer;
+
+				padding: 0.2rem 1.2rem;
+				box-shadow: 0 0 0 1px #bababa;
+				border-radius: 20px;
+
+				color: #333;
+
+				transition: all 0.3s ease;
+
+				&:hover {
+					box-shadow: 0 0 0 1px $primary;
+				}
+			}
+		}
+
+		.label {
+			display: inline-block;
+			margin-bottom: 0.8rem;
+
+			font-size: 1.2rem;
+			color: $text-dim;
+			letter-spacing: 1.2px;
+			font-weight: 600;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.model .details,
+.model .usage {
+	max-width: 80rem;
+
+	h2 {
+		color: $primary;
+		font-size: 2.4rem;
+		letter-spacing: 0.2px;
+
+		margin-bottom: 2.4rem;
+	}
+
+	p {
+		color: #3c4043;
+		line-height: 1.6;
+
+		&:not(:last-child) {
+			margin-bottom: 1.6rem;
+		}
+	}
+
+	li {
+		line-height: 1.6;
+		margin-bottom: 0.6rem;
+	}
+}
+
+.model .usage {
+	margin-top: 4.8rem;
+
+	code {
+		font-family: 'Fira Code';
+		letter-spacing: 0.3px;
+		font-size: 1.4rem;
+	}
+}
