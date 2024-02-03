@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Variants, motion, cubicBezier } from 'framer-motion';
 
 import { TModel } from 'models';
@@ -32,14 +33,16 @@ const ModelCard: React.FC<Props> = ({ model, shouldTranslate }) => (
 		whileTap="tap"
 		className={styles.card}
 	>
-		<header>
-			<p className={styles.name}>{model.name}</p>
-			<span className={styles.category}>{model.category}</span>
-		</header>
+		<Link to={`/models/${model.slug}`}>
+			<header>
+				<p className={styles.name}>{model.name}</p>
+				<span className={styles.category}>{model.category}</span>
+			</header>
 
-		<p className={styles.summary}>{model.summary}</p>
+			<p className={styles.summary}>{model.summary}</p>
 
-		<ModelStats noOfLikes={model.stats.likes} noOfDownloads={model.stats.downloads} />
+			<ModelStats noOfLikes={model.stats.likes} noOfDownloads={model.stats.downloads} />
+		</Link>
 	</motion.article>
 );
 

@@ -1,22 +1,25 @@
 import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as LeftArrowIcon } from 'assets/left-arrow-icon.svg';
 
 import styles from 'styles/components/_Breadcrumb.module.scss';
 
-const Breadcrumb = () => {
-	const links = [
-		{ label: 'Models', to: '/' },
-		{ label: 'BERT', to: '/model-detail' },
-	];
+type Props = {
+	links: {
+		label: string;
+		to: string;
+	}[];
+};
 
+const Breadcrumb: React.FC<Props> = ({ links }) => {
 	return (
 		<nav className={styles.breadcrumb}>
 			<ol className={styles.list}>
 				<li>
-					<a href="/">
+					<Link to="/">
 						<LeftArrowIcon />
-					</a>
+					</Link>
 				</li>
 
 				{links.map((link, idx) => (
@@ -24,7 +27,7 @@ const Breadcrumb = () => {
 						{idx > 0 && <span className={styles.separator}>/</span>}
 
 						<li className={`${idx === 1 ? styles.active : ''}`}>
-							<a href={link.to}>{link.label}</a>
+							<Link to={link.to}>{link.label}</Link>
 						</li>
 					</Fragment>
 				))}

@@ -1,5 +1,6 @@
 export type TModel = {
 	id: number;
+	slug: string;
 	name: string;
 	category: string;
 	summary: string;

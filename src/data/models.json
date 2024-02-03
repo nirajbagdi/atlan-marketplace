@@ -1,6 +1,7 @@
 [
 	{
 		"id": 1,
+		"slug": "resnet50",
 		"name": "ResNet50",
 		"category": "Computer Vision",
 		"summary": "A deep residual neural network for image classification.",
@@ -16,6 +17,7 @@
 	},
 	{
 		"id": 2,
+		"slug": "bert",
 		"name": "BERT",
 		"category": "Natural Language Processing",
 		"summary": "A pre-trained transformer model for various NLP tasks.",
@@ -31,6 +33,7 @@
 	},
 	{
 		"id": 3,
+		"slug": "gpt-3",
 		"name": "GPT-3",
 		"category": "Natural Language Processing",
 		"summary": "A state-of-the-art language processing AI model with diverse applications.",
@@ -46,6 +49,7 @@
 	},
 	{
 		"id": 4,
+		"slug": "yolo",
 		"name": "YOLO",
 		"category": "Computer Vision",
 		"summary": "A real-time object detection model with high accuracy.",
@@ -61,6 +65,7 @@
 	},
 	{
 		"id": 5,
+		"slug": "inceptionv3",
 		"name": "InceptionV3",
 		"category": "Computer Vision",
 		"summary": "A deep neural network model for image classification and object recognition.",
@@ -76,6 +81,7 @@
 	},
 	{
 		"id": 6,
+		"slug": "fasttext",
 		"name": "FastText",
 		"category": "Natural Language Processing",
 		"summary": "A library for efficient learning of word representations and sentence classification.",
@@ -91,6 +97,7 @@
 	},
 	{
 		"id": 7,
+		"slug": "vgg16",
 		"name": "VGG16",
 		"category": "Computer Vision",
 		"summary": "A deep convolutional neural network model for image classification.",
@@ -106,6 +113,7 @@
 	},
 	{
 		"id": 8,
+		"slug": "svm",
 		"name": "SVM",
 		"category": "Machine Learning",
 		"summary": "A supervised learning model for classification and regression analysis.",
@@ -121,6 +129,7 @@
 	},
 	{
 		"id": 9,
+		"slug": "openpose",
 		"name": "OpenPose",
 		"category": "Computer Vision",
 		"summary": "A library for multi-person keypoint detection in images and videos.",
@@ -136,6 +145,7 @@
 	},
 	{
 		"id": 10,
+		"slug": "wavenet",
 		"name": "WaveNet",
 		"category": "Speech Synthesis",
 		"summary": "A deep neural network for realistic speech synthesis.",
@@ -151,6 +161,7 @@
 	},
 	{
 		"id": 11,
+		"slug": "u-net",
 		"name": "U-Net",
 		"category": "Medical Image Segmentation",
 		"summary": "A convolutional neural network model for medical image segmentation.",
@@ -166,6 +177,7 @@
 	},
 	{
 		"id": 12,
+		"slug": "random_forest",
 		"name": "Random Forest",
 		"category": "Machine Learning",
 		"summary": "An ensemble learning model for classification and regression tasks.",
@@ -181,6 +193,7 @@
 	},
 	{
 		"id": 13,
+		"slug": "deepdream",
 		"name": "DeepDream",
 		"category": "Artificial Intelligence",
 		"summary": "A deep neural network model for generating dream-like images.",
@@ -196,6 +209,7 @@
 	},
 	{
 		"id": 14,
+		"slug": "cyclegan",
 		"name": "CycleGAN",
 		"category": "Computer Vision",
 		"summary": "A generative model for image-to-image translation using unpaired data.",
@@ -211,6 +225,7 @@
 	},
 	{
 		"id": 15,
+		"slug": "opencv",
 		"name": "OpenCV",
 		"category": "Computer Vision",
 		"summary": "An open-source computer vision library for various image processing tasks.",

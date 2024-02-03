@@ -1,5 +1,11 @@
 @import 'styles/base';
 
+.container {
+	max-width: 120rem;
+	margin-inline: auto;
+	padding: 6.4rem 2.4rem 8rem 2.4rem;
+}
+
 .model {
 	display: grid;
 	grid-template-columns: 1fr auto;
