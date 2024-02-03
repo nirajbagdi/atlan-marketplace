@@ -1,0 +1,70 @@
+@import 'styles/base';
+
+.breadcrumb {
+	margin-bottom: 5.2rem;
+
+	ol {
+		list-style: none;
+		@include centered-flex(1.2rem);
+
+		.separator {
+			font-weight: 700;
+			color: $text-dim;
+		}
+
+		svg {
+			width: 20px;
+			height: auto;
+		}
+
+		a {
+			color: $primary;
+			font-weight: 500;
+			text-decoration: none;
+			letter-spacing: 0.5px;
+		}
+
+		li {
+			position: relative;
+
+			&:first-child {
+				transform: translateY(3px);
+				margin-right: 1.2rem;
+			}
+
+			&::before {
+				content: '';
+
+				position: absolute;
+				bottom: 0;
+				left: 0;
+
+				width: 100%;
+				height: 0.5px;
+
+				background-color: $primary;
+				opacity: 0;
+
+				transition: all 0.3s ease;
+			}
+
+			&:not(:first-child):not(.active):hover,
+			&:not(:first-child):not(.active):focus {
+				&::before {
+					opacity: 1;
+					background: $primary;
+				}
+			}
+
+			&.active {
+				a {
+					font-weight: 700;
+				}
+
+				&::before {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
