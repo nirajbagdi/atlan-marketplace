@@ -11,6 +11,8 @@ type Props = {
 };
 
 const ModelsGrid: React.FC<Props> = ({ models, masonry }) => {
+	if (!models.length) return null;
+
 	const modelsJSX = models.map(model => <ModelCard key={model.id} model={model} />);
 
 	const simpleLayout = <div className={styles.grid}>{modelsJSX}</div>;

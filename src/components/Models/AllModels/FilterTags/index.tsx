@@ -1,13 +1,39 @@
-import modelsData from 'data/models.json';
+import { useEffect, useState } from 'react';
+
+import { useAppCtx } from 'store/context';
 
 import FilterTag from './FilterTag';
 
 import styles from 'styles/components/_FilterTags.module.scss';
 
-const FilterTags = () => {
-	const tags = Array.from(new Set(modelsData.map(model => model.category)));
+type Props = {
+	onUpdateResults: (filters: string[]) => void;
+};
 
-	const tagsJSX = tags.map(tag => <FilterTag key={tag} tag={tag} />);
+const FilterTags: React.FC<Props> = ({ onUpdateResults }) => {
+	const [filters, setFilters] = useState<string[]>([]);
+
+	const { models } = useAppCtx();
+
+	useEffect(() => {
+		onUpdateResults(filters);
+		// eslint-disable-next-line
+	}, [filters]);
+
+	const handleFilterSelect = (filterName: string) => {
+		setFilters(prevFilters =>
+			prevFilters.includes(filterName)
+				? prevFilters.filter(name => name !== filterName)
+				: [...prevFilters, filterName]
+		);
+	};
+
+	const tags = Array.from(new Set(models.map(model => model.category)));
+
+	const tagsJSX = tags.map(tag => (
+		<FilterTag key={tag} filterName={tag} onFilterSelect={handleFilterSelect} />
+	));
+
 	return <div className={styles.tags}>{tagsJSX}</div>;
 };
 

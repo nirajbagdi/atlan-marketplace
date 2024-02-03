@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 import { TModel } from 'models';
 
 import ModelsGrid from 'components/Models/ModelsGrid';
@@ -9,18 +11,31 @@ type Props = {
 	models: TModel[];
 };
 
-const AllModels: React.FC<Props> = ({ models }) => (
-	<section className={styles.models}>
-		<header>
-			<FilterTags />
+const AllModels: React.FC<Props> = ({ models }) => {
+	const [filteredModels, setFilteredModels] = useState<TModel[]>([]);
 
-			<p>
-				Models <span>{models.length}</span>
-			</p>
-		</header>
+	useEffect(() => {
+		setFilteredModels(models);
+	}, [models]);
 
-		<ModelsGrid masonry models={models} />
-	</section>
-);
+	const handleUpdateResults = (filterNames: string[]) => {
+		const filtered = models.filter(model => filterNames.includes(model.category));
+		setFilteredModels(filtered.length ? filtered : models);
+	};
+
+	return (
+		<section className={styles.models}>
+			<header>
+				<FilterTags onUpdateResults={handleUpdateResults} />
+
+				<p>
+					Models <span>{filteredModels.length}</span>
+				</p>
+			</header>
+
+			<ModelsGrid masonry models={filteredModels} />
+		</section>
+	);
+};
 
 export default AllModels;
