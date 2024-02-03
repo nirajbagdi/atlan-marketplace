@@ -1,6 +1,7 @@
 @import 'styles/base';
 
 .tags {
+	max-width: 80rem;
 	margin-bottom: 6.2rem;
 
 	@include centered-flex(1.2rem);
