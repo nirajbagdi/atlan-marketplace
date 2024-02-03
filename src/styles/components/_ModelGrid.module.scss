@@ -37,20 +37,3 @@
 	font-size: 1.8rem;
 	margin-block: 1.6rem 2.4rem;
 }
-
-.stats {
-	@include centered-flex;
-
-	.heart,
-	.download {
-		@include centered-flex(0.8rem);
-
-		color: #a4a4a4;
-		font-weight: 500;
-		font-size: 1.4rem;
-
-		svg {
-			width: 1.8rem;
-		}
-	}
-}

@@ -1,9 +1,7 @@
 import { Variants, motion, cubicBezier } from 'framer-motion';
 
 import { TModel } from 'models';
-
-import { ReactComponent as DownloadIcon } from 'assets/download-icon.svg';
-import { ReactComponent as HeartIcon } from 'assets/heart-icon.svg';
+import ModelStats from 'components/Models/ModelStats';
 
 import styles from 'styles/components/_ModelGrid.module.scss';
 
@@ -41,15 +39,7 @@ const ModelCard: React.FC<Props> = ({ model, shouldTranslate }) => (
 
 		<p className={styles.summary}>{model.summary}</p>
 
-		<div className={styles.stats}>
-			<p className={styles.heart}>
-				<HeartIcon /> {model.stats.likes}
-			</p>
-
-			<p className={styles.download}>
-				<DownloadIcon /> {model.stats.downloads}
-			</p>
-		</div>
+		<ModelStats noOfLikes={model.stats.likes} noOfDownloads={model.stats.downloads} />
 	</motion.article>
 );
 

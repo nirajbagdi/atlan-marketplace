@@ -1,0 +1,18 @@
+@import 'styles/base';
+
+.stats {
+	@include centered-flex;
+
+	.heart,
+	.download {
+		@include centered-flex(0.8rem);
+
+		color: #a4a4a4;
+		font-weight: 500;
+		font-size: 1.4rem;
+
+		svg {
+			width: 1.8rem;
+		}
+	}
+}
