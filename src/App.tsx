@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 import Home from 'pages/Home';
+import NewModel from 'pages/NewModel';
 import SingleModel from 'pages/SingleModel';
 
 const App: React.FC = () => {
@@ -15,6 +16,7 @@ const App: React.FC = () => {
 	return (
 		<Routes location={location} key={location.pathname}>
 			<Route index element={<Home />} />
+			<Route path="/models/new" element={<NewModel />} />
 			<Route path="/models/:modelSlug" element={<SingleModel />} />
 		</Routes>
 	);

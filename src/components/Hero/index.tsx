@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { ReactComponent as PlusIcon } from 'assets/plus-icon.svg';
 import { ReactComponent as LandingIllustration } from 'assets/landing-illustration.svg';
 
@@ -14,7 +16,9 @@ const Hero = () => (
 			</p>
 
 			<button>
-				<PlusIcon /> New Model
+				<Link to="/models/new">
+					<PlusIcon /> New Model
+				</Link>
 			</button>
 		</div>
 

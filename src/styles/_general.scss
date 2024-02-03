@@ -37,6 +37,13 @@ a {
 	color: inherit;
 }
 
+input,
+textarea {
+	font: inherit;
+	border: none;
+	outline: none;
+}
+
 .container {
 	max-width: 120rem;
 	margin-inline: auto;
