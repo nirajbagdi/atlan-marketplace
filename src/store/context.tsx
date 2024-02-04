@@ -3,11 +3,13 @@ import { TModel } from 'models';
 
 type ContextState = {
 	models: TModel[];
+	isLoading: boolean;
 	addModel: (modelObj: TModel) => void;
 };
 
 const initialState: ContextState = {
 	models: [],
+	isLoading: true,
 	addModel: modelObj => {},
 };
 

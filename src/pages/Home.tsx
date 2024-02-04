@@ -3,21 +3,30 @@ import { useAppCtx } from 'store/context';
 import Hero from 'components/Hero';
 import AllModels from 'components/Models/AllModels';
 import FeaturedModels from 'components/Models/FeaturedModels';
+import { ReactComponent as Loader } from 'assets/loader.svg';
 
 const Home = () => {
-	const { models } = useAppCtx();
-	if (!models.length) return null;
+	const { models, isLoading } = useAppCtx();
 
 	const featuredModels = models.filter(model => model.featured);
+
+	const fallbackJSX = (
+		<div className="loader">
+			<Loader />
+		</div>
+	);
+
+	const modelsJSX = (
+		<>
+			<FeaturedModels models={featuredModels} />
+			<AllModels models={models} />
+		</>
+	);
 
 	return (
 		<div className="container">
 			<Hero />
-
-			<main>
-				<FeaturedModels models={featuredModels} />
-				<AllModels models={models} />
-			</main>
+			<main>{isLoading ? fallbackJSX : modelsJSX}</main>
 		</div>
 	);
 };

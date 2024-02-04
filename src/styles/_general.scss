@@ -50,9 +50,25 @@ textarea {
 	padding: 12.8rem 2.4rem 15rem 2.4rem;
 }
 
-.error {
+.loader {
 	text-align: center;
-	font-weight: 600;
-	font-size: 1.8rem;
-	color: $error;
+	max-width: 100%;
+	margin-inline: auto;
+
+	svg {
+		width: 5rem;
+		height: 5rem;
+		fill: $primary;
+		animation: rotate 2s infinite linear;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }
