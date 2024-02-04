@@ -12,8 +12,6 @@ const AppProvider: React.FC<Props> = ({ children }) => {
 	const [models, setModels] = useState<TModel[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 
-	console.log(isLoading);
-
 	useEffect(() => {
 		(async () => {
 			setIsLoading(true);
