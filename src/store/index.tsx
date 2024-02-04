@@ -10,16 +10,11 @@ type Props = {
 
 const AppProvider: React.FC<Props> = ({ children }) => {
 	const [models, setModels] = useState<TModel[]>([]);
-	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		(async () => {
-			setIsLoading(true);
-
 			const fetchedModels = await fetchModels();
 			setModels(fetchedModels);
-
-			setIsLoading(false);
 		})();
 	}, []);
 
@@ -27,7 +22,7 @@ const AppProvider: React.FC<Props> = ({ children }) => {
 		setModels(prevModels => [modelObj, ...prevModels]);
 	};
 
-	const contextValue = { models, addModel, isLoading };
+	const contextValue = { models, addModel };
 	return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 };
 

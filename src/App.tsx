@@ -1,9 +1,11 @@
-import { useEffect } from 'react';
+import { lazy, useEffect, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-import Home from 'pages/Home';
-import NewModel from 'pages/NewModel';
-import SingleModel from 'pages/SingleModel';
+import Loader from 'components/Loader';
+
+const Home = lazy(() => import('pages/Home'));
+const NewModel = lazy(() => import('pages/NewModel'));
+const SingleModel = lazy(() => import('pages/SingleModel'));
 
 const App: React.FC = () => {
 	const location = useLocation();
@@ -14,11 +16,13 @@ const App: React.FC = () => {
 	}, [location.pathname]);
 
 	return (
-		<Routes location={location} key={location.pathname}>
-			<Route index element={<Home />} />
-			<Route path="/models/new" element={<NewModel />} />
-			<Route path="/models/:modelSlug" element={<SingleModel />} />
-		</Routes>
+		<Suspense fallback={<Loader />}>
+			<Routes location={location} key={location.pathname}>
+				<Route index element={<Home />} />
+				<Route path="/models/new" element={<NewModel />} />
+				<Route path="/models/:modelSlug" element={<SingleModel />} />
+			</Routes>
+		</Suspense>
 	);
 };
 
