@@ -22,7 +22,11 @@ const AppProvider: React.FC<Props> = ({ children }) => {
 		setModels(prevModels => [modelObj, ...prevModels]);
 	};
 
-	const contextValue = { models, addModel };
+	const findModelBySlug = (modelSlug: string) => {
+		return models.find(model => model.slug === modelSlug)!;
+	};
+
+	const contextValue = { models, addModel, findModelBySlug };
 	return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 };
 

@@ -3,11 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useAppCtx } from 'store/context';
 
 import Breadcrumb from 'components/Layout/Breadcrumb';
-import ModelDetails from 'components/Models/ModelDetails';
 
-import styles from 'styles/components/_ModelDetails.module.scss';
+import styles from 'styles/components/_TryItOut.module.scss';
 
-const SingleModel = () => {
+const TryItOut = () => {
 	const { modelSlug } = useParams();
 	const { findModelBySlug } = useAppCtx();
 
@@ -17,14 +16,18 @@ const SingleModel = () => {
 	const breadcrumbLinks = [
 		{ label: 'Models', to: '/' },
 		{ label: model.name, to: `/models/${model.slug}` },
+		{ label: 'Try It Out', to: `/models/${model.slug}/try` },
 	];
 
 	return (
 		<section className={styles.container}>
 			<Breadcrumb links={breadcrumbLinks} />
-			<ModelDetails model={model!} />
+
+			<div className={styles.main}>
+				<p>Try {model.name}</p>
+			</div>
 		</section>
 	);
 };
 
-export default SingleModel;
+export default TryItOut;

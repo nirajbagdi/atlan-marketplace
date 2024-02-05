@@ -10,14 +10,14 @@ const Home = () => {
 	const featuredModels = models.filter(model => model.featured);
 
 	return (
-		<div className="container">
+		<section className="container">
 			<Hero />
 
 			<main>
 				<FeaturedModels models={featuredModels} />
 				<AllModels models={models} />
 			</main>
-		</div>
+		</section>
 	);
 };
 

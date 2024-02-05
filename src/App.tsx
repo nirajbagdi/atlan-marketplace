@@ -6,6 +6,7 @@ import Loader from 'components/Layout/Loader';
 const Home = lazy(() => import('pages/Home'));
 const NewModel = lazy(() => import('pages/NewModel'));
 const SingleModel = lazy(() => import('pages/SingleModel'));
+const TryItOut = lazy(() => import('pages/TryItOut'));
 
 const App: React.FC = () => {
 	const location = useLocation();
@@ -18,9 +19,10 @@ const App: React.FC = () => {
 	return (
 		<Suspense fallback={<Loader />}>
 			<Routes location={location} key={location.pathname}>
-				<Route index element={<Home />} />
-				<Route path="/models/new" element={<NewModel />} />
-				<Route path="/models/:modelSlug" element={<SingleModel />} />
+				<Route index Component={Home} />
+				<Route path="/models/new" Component={NewModel} />
+				<Route path="/models/:modelSlug" Component={SingleModel} />
+				<Route path="/models/:modelSlug/try" Component={TryItOut} />
 			</Routes>
 		</Suspense>
 	);
