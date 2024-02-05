@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useAppCtx } from 'store/context';
 
 import Breadcrumb from 'components/Layout/Breadcrumb';
+import ModelSpace from 'components/Models/ModelSpace';
 
-import styles from 'styles/components/_TryItOut.module.scss';
+import styles from 'styles/components/_ModelSpace.module.scss';
 
 const TryItOut = () => {
 	const { modelSlug } = useParams();
@@ -22,10 +23,7 @@ const TryItOut = () => {
 	return (
 		<section className={styles.container}>
 			<Breadcrumb links={breadcrumbLinks} />
-
-			<div className={styles.main}>
-				<p>Try {model.name}</p>
-			</div>
+			<ModelSpace />
 		</section>
 	);
 };
