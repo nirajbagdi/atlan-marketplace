@@ -1,9 +1,7 @@
 @import 'styles/base';
 
 .container {
-	max-width: 120rem;
-	margin-inline: auto;
-	padding: 6.4rem 2.4rem 8rem 2.4rem;
+	@include page-container;
 
 	h2 {
 		color: $primary;
@@ -65,11 +63,6 @@
 	}
 
 	button {
-		font-weight: 600;
-		padding: 1rem 2rem;
-		border-radius: 80px;
-
-		background: $primary;
-		color: $secondary;
+		@include button-styles;
 	}
 }

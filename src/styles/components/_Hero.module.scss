@@ -23,14 +23,7 @@
 	}
 
 	button {
-		font-weight: 600;
-		padding: 1rem 2rem;
-		border-radius: 80px;
-
-		background: $primary;
-		color: $secondary;
-
-		@include centered-flex(0.6rem);
+		@include button-styles;
 
 		svg {
 			width: 1.6rem;
