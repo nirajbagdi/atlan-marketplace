@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 
 import { ReactComponent as UploadIcon } from 'assets/upload-icon.svg';
 
@@ -40,7 +40,7 @@ const ImageToText: React.FC = () => {
 	return (
 		<form className={styles.form} onSubmit={handleFormSubmit}>
 			<div className={styles.image}>
-				{imagePreview && <img src={imagePreview} alt="Uploaded Image" />}
+				{imagePreview && <img src={imagePreview} alt="Uploaded Preview" />}
 			</div>
 
 			<div className={styles.input}>
