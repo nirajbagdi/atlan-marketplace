@@ -20,6 +20,25 @@
 	grid-row: 1;
 	grid-column: 1/-1;
 
+	button {
+		margin-top: 4.8rem;
+		@include button-styles;
+
+		a {
+			@include centered-flex(0.8rem);
+		}
+
+		svg {
+			width: 1.6rem;
+			height: 1.6rem;
+			transform: translateY(1px);
+
+			g {
+				stroke: $secondary;
+			}
+		}
+	}
+
 	&::before {
 		content: '';
 
