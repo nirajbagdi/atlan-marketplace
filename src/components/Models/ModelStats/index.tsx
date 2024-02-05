@@ -8,14 +8,16 @@ type Props = {
 	noOfDownloads: number;
 };
 
+const formatNum = (num: number) => new Intl.NumberFormat('en-US').format(num);
+
 const ModelStats: React.FC<Props> = ({ noOfLikes, noOfDownloads }) => (
 	<div className={styles.stats}>
 		<p className={styles.heart}>
-			<HeartIcon /> {noOfLikes}
+			<HeartIcon /> {formatNum(noOfLikes)}
 		</p>
 
 		<p className={styles.download}>
-			<DownloadIcon /> {noOfDownloads}
+			<DownloadIcon /> {formatNum(noOfDownloads)}
 		</p>
 	</div>
 );
