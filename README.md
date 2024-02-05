@@ -35,4 +35,13 @@ Experience the live application [here](https://atlan-marketplace.netlify.app/).
 2.  Install dependencies using `npm install`.
 3.  Run the development server with `npm start`.
 
+## Dependencies
+
+-   React with TypeScript.
+-   [Axios](https://axios-http.com/) for data fetching.
+-   [React Router](https://reactrouter.com/) for routing.
+-   [Framer Motion](https://www.framer.com/motion/) for engaging animations.
+-   [React Markdown](https://reactmarkdown.com/) for rendering Markdown content.
+-   [React Syntax Highlighter](https://react-syntax-highlighter.com/) for displaying highlighted code snippets.
+
 Feel free to explore the AI model marketplace and enjoy the interactive features!
