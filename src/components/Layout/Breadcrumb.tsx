@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { ReactComponent as LeftArrowIcon } from 'assets/left-arrow-icon.svg';
 
@@ -13,6 +13,18 @@ type Props = {
 };
 
 const Breadcrumb: React.FC<Props> = ({ links }) => {
+	const location = useLocation();
+
+	const linksJSX = links.map((link, idx) => (
+		<Fragment key={idx}>
+			{idx > 0 && <span className={styles.separator}>/</span>}
+
+			<li className={location.pathname === link.to ? styles.active : ''}>
+				<Link to={link.to}>{link.label}</Link>
+			</li>
+		</Fragment>
+	));
+
 	return (
 		<nav className={styles.breadcrumb}>
 			<ol className={styles.list}>
@@ -22,15 +34,7 @@ const Breadcrumb: React.FC<Props> = ({ links }) => {
 					</Link>
 				</li>
 
-				{links.map((link, idx) => (
-					<Fragment key={idx}>
-						{idx > 0 && <span className={styles.separator}>/</span>}
-
-						<li className={`${idx === 1 ? styles.active : ''}`}>
-							<Link to={link.to}>{link.label}</Link>
-						</li>
-					</Fragment>
-				))}
+				{linksJSX}
 			</ol>
 		</nav>
 	);

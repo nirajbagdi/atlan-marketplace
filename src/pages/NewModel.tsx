@@ -12,6 +12,7 @@ const NewModel = () => {
 	return (
 		<div className={styles.container}>
 			<Breadcrumb links={breadcrumbLinks} />
+
 			<h2>Add model details</h2>
 			<ModelForm />
 		</div>
