@@ -21,10 +21,10 @@ const TryItOut = () => {
 
     useEffect(() => {
         (async () => {
-            if (!modelConfig[modelSlug as string]) return;
+            if (!modelConfig[modelSlug!]) return;
 
             try {
-                const model: any = modelConfig[modelSlug as string];
+                const model = modelConfig[modelSlug!];
 
                 const loadedModel = await tf.loadGraphModel(model.baseUrl, {
                     fromTFHub: model.fromTfHub,
@@ -32,7 +32,7 @@ const TryItOut = () => {
 
                 loadImageToImageData(monkeyImg, async (imgData) => {
                     const tensor = model.preprocess(imgData);
-                    const predictions = loadedModel.predict(tensor);
+                    const predictions = loadedModel.predict(tensor) as tf.Tensor;
                     const result = await model.postprocess(predictions);
 
                     console.log(result);

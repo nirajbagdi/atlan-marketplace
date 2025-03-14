@@ -2,8 +2,9 @@ import * as tf from '@tensorflow/tfjs';
 
 import { preprocessImage, getTopKClasses } from 'utils';
 import { PREDICTION_LABELS } from './labels';
+import { ModelConfigMap } from './types';
 
-const modelConfig: any = {
+const modelConfig: ModelConfigMap = {
     inceptionv3: {
         inputType: 'image',
         outputType: 'classification',
