@@ -36,8 +36,6 @@ const modelConfig: any = {
 
         baseUrl:
             'https://www.kaggle.com/models/google/resnet-v2/TfJs/101-classification/2',
-        labelsUrl:
-            'https://storage.googleapis.com/download.tensorflow.org/data/imagenet_class_index.json',
         fromTfHub: true,
 
         preprocess(imgData: ImageData) {
