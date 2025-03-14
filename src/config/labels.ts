@@ -1,4 +1,4 @@
-export const INCEPTION_CLASSES = [
+export const PREDICTION_LABELS = [
     'background',
     'tench',
     'goldfish',

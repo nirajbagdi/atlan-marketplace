@@ -1,7 +1,7 @@
 import * as tf from '@tensorflow/tfjs';
 
-import { preprocessImage, getTopKClasses, fetchLabels } from 'utils';
-import { INCEPTION_CLASSES } from './inceptionLabels';
+import { preprocessImage, getTopKClasses } from 'utils';
+import { PREDICTION_LABELS } from './labels';
 
 const modelConfig: any = {
     inceptionv3: {
@@ -22,9 +22,9 @@ const modelConfig: any = {
             const probsArray = indices.dataSync();
 
             return [
-                INCEPTION_CLASSES[probsArray[0]],
-                INCEPTION_CLASSES[probsArray[1]],
-                INCEPTION_CLASSES[probsArray[2]],
+                PREDICTION_LABELS[probsArray[0]],
+                PREDICTION_LABELS[probsArray[1]],
+                PREDICTION_LABELS[probsArray[2]],
             ];
         },
     },
@@ -48,8 +48,7 @@ const modelConfig: any = {
             const probabilities = tf.softmax(predictions);
             const probsArray = probabilities.dataSync();
 
-            const labels = await fetchLabels(this.labelsUrl);
-            return getTopKClasses(probsArray, labels);
+            return getTopKClasses(probsArray, PREDICTION_LABELS);
         },
     },
 

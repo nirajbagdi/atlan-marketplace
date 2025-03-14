@@ -33,12 +33,6 @@ export const preprocessImage = (imgData: ImageData, size: number) =>
         .div(tf.scalar(255))
         .expandDims();
 
-export const fetchLabels = async (url: string): Promise<string[]> => {
-    const response = await fetch(url);
-    const data = await response.json();
-    return Object.values(data).map((entry) => (entry as [string, string])[1]);
-};
-
 export const getTopKClasses = (probabilities: unknown, labels: string[], k = 3) =>
     [...(probabilities as [])]
         .map((prob, index) => ({ index, prob }))
