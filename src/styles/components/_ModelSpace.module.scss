@@ -85,3 +85,19 @@
         }
     }
 }
+
+.container p {
+    font-size: 1.8rem;
+    color: $primary;
+
+    span {
+        font-weight: 600;
+        margin-right: 0.4rem;
+    }
+}
+
+.modelContainer {
+    & > p {
+        margin-bottom: 3.2rem;
+    }
+}

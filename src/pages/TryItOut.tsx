@@ -57,11 +57,24 @@ const TryItOut = () => {
             <Breadcrumb links={breadcrumbLinks} />
 
             <div className={styles.space}>
-                {!loadedModel && !error && <p>Loading Model...</p>}
+                {!loadedModel && !error && (
+                    <p>
+                        Initializing <span>{model.name}...</span> Please wait.
+                    </p>
+                )}
                 {error && <p>{error}</p>}
 
                 {loadedModel && !error && (
-                    <ModelComponent model={modelEntry} loadedModel={loadedModel} />
+                    <div className={styles.modelContainer}>
+                        <p>
+                            <span>{model.name}</span> Loaded Successfully!
+                        </p>
+
+                        <ModelComponent
+                            model={modelEntry}
+                            loadedModel={loadedModel}
+                        />
+                    </div>
                 )}
             </div>
         </section>
