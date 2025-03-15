@@ -3,16 +3,12 @@ import * as tf from '@tensorflow/tfjs';
 
 import { ReactComponent as UploadIcon } from 'assets/upload-icon.svg';
 
-import { BaseModelConfig, ClassificationResult } from 'config/types';
+import { ModelComponentProps, ClassificationResult } from 'config/types';
 import { loadImageToImageData } from 'utils';
 
 import styles from 'styles/components/_ModelSpace.module.scss';
 
-type Props = {
-    model: BaseModelConfig;
-};
-
-const ImageClassifier: React.FC<Props> = ({ model }) => {
+const ImageClassifier: React.FC<ModelComponentProps> = ({ model, loadedModel }) => {
     const [isProcessing, setIsProcessing] = useState(false);
     const [predictions, setPredictions] = useState<ClassificationResult[]>([]);
     const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -31,10 +27,6 @@ const ImageClassifier: React.FC<Props> = ({ model }) => {
         setIsProcessing(true);
 
         try {
-            const loadedModel = await tf.loadGraphModel(model.baseUrl, {
-                fromTFHub: model.fromTfHub,
-            });
-
             loadImageToImageData(inputImgUrl, async (imgData) => {
                 const tensor = model.preprocess(imgData);
                 const predictions = loadedModel.predict(tensor) as tf.Tensor;

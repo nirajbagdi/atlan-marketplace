@@ -12,7 +12,12 @@ export type BaseModelConfig = {
     fromTfHub?: boolean;
     preprocess: PreprocessFunction;
     postprocess: PostprocessFunction;
-    component: React.FC<{ model: BaseModelConfig }>;
+    component: React.FC<ModelComponentProps>;
+};
+
+export type ModelComponentProps = {
+    model: BaseModelConfig;
+    loadedModel: tf.GraphModel;
 };
 
 export type ModelConfigMap = Record<string, BaseModelConfig>;
