@@ -16,3 +16,8 @@ export type BaseModelConfig = {
 };
 
 export type ModelConfigMap = Record<string, BaseModelConfig>;
+
+export type ClassificationResult = {
+    className: string;
+    probability: string;
+};

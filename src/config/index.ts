@@ -2,7 +2,7 @@ import * as tf from '@tensorflow/tfjs';
 
 import { preprocessImage, getTopKClasses } from 'utils';
 import { PREDICTION_LABELS } from './labels';
-import { ModelConfigMap } from './types';
+import { ClassificationResult, ModelConfigMap } from './types';
 
 import ImageClassifier from 'components/Models/ModelSpace/ImageClassifier';
 
@@ -20,7 +20,7 @@ const modelConfig: ModelConfigMap = {
             return preprocessImage(imgData, this.inputSize);
         },
 
-        async postprocess(predictions: tf.Tensor) {
+        async postprocess(predictions: tf.Tensor): Promise<ClassificationResult[]> {
             const probabilities = tf.softmax(predictions);
 
             const { indices, values } = tf.topk(probabilities, 3);
@@ -50,7 +50,7 @@ const modelConfig: ModelConfigMap = {
             return preprocessImage(imgData, this.inputSize);
         },
 
-        async postprocess(predictions: tf.Tensor) {
+        async postprocess(predictions: tf.Tensor): Promise<ClassificationResult[]> {
             const probabilities = tf.softmax(predictions);
             const probsArray = probabilities.dataSync();
 

@@ -3,7 +3,7 @@ import * as tf from '@tensorflow/tfjs';
 
 import { ReactComponent as UploadIcon } from 'assets/upload-icon.svg';
 
-import { BaseModelConfig } from 'config/types';
+import { BaseModelConfig, ClassificationResult } from 'config/types';
 import { loadImageToImageData } from 'utils';
 
 import styles from 'styles/components/_ModelSpace.module.scss';
@@ -14,7 +14,7 @@ type Props = {
 
 const ImageClassifier: React.FC<Props> = ({ model }) => {
     const [isProcessing, setIsProcessing] = useState(false);
-    const [predictions, setPredictions] = useState<string[]>([]);
+    const [predictions, setPredictions] = useState<ClassificationResult[]>([]);
     const [imageUrl, setImageUrl] = useState<string | null>(null);
 
     const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -23,6 +23,7 @@ const ImageClassifier: React.FC<Props> = ({ model }) => {
         if (imageFile) {
             const previewURL = URL.createObjectURL(imageFile);
             setImageUrl(previewURL);
+            setPredictions([]);
         }
     };
 
@@ -39,7 +40,7 @@ const ImageClassifier: React.FC<Props> = ({ model }) => {
                 const predictions = loadedModel.predict(tensor) as tf.Tensor;
                 const result = await model.postprocess(predictions);
 
-                setPredictions(result.map((r: any) => r.className));
+                setPredictions(result);
             });
         } catch (error) {
             console.log('Error loading model or processing image');
@@ -63,7 +64,7 @@ const ImageClassifier: React.FC<Props> = ({ model }) => {
 
             <div className={styles.input}>
                 <label htmlFor="image">
-                    <UploadIcon /> Upload Image
+                    <UploadIcon /> Choose an Image
                 </label>
 
                 <input
@@ -74,12 +75,24 @@ const ImageClassifier: React.FC<Props> = ({ model }) => {
                 />
             </div>
 
-            {imageUrl && (
-                <button>{isProcessing ? 'Processing...' : 'Generate Text'}</button>
+            {imageUrl && predictions.length === 0 && (
+                <button disabled={isProcessing}>
+                    {isProcessing ? 'Processing...' : 'Classify Image'}
+                </button>
             )}
 
             {predictions.length > 0 && (
-                <p className={styles.output}>{predictions.join('\n')}</p>
+                <div className={styles.output}>
+                    <h3>Predictions</h3>
+
+                    <ol>
+                        {predictions.map((prediction, idx) => (
+                            <li key={idx}>
+                                {prediction.className} — {prediction.probability}
+                            </li>
+                        ))}
+                    </ol>
+                </div>
             )}
         </form>
     );

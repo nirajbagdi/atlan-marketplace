@@ -40,5 +40,5 @@ export const getTopKClasses = (probabilities: unknown, labels: string[], k = 3) 
         .slice(0, k)
         .map(({ index, prob }) => ({
             className: labels[index] || `Class ${index}`,
-            probability: (prob * 100).toFixed(2),
+            probability: (prob * 100).toFixed(2) + '%',
         }));
