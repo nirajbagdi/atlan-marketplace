@@ -12,7 +12,7 @@ type Props = {
     model: BaseModelConfig;
 };
 
-const ImageToText: React.FC<Props> = ({ model }) => {
+const ImageClassifier: React.FC<Props> = ({ model }) => {
     const [isProcessing, setIsProcessing] = useState(false);
     const [predictions, setPredictions] = useState<string[]>([]);
     const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -85,4 +85,4 @@ const ImageToText: React.FC<Props> = ({ model }) => {
     );
 };
 
-export default ImageToText;
+export default ImageClassifier;

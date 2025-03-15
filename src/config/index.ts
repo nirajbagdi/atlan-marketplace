@@ -4,7 +4,7 @@ import { preprocessImage, getTopKClasses } from 'utils';
 import { PREDICTION_LABELS } from './labels';
 import { ModelConfigMap } from './types';
 
-import ImageToText from 'components/Models/ModelSpace/ImageToText';
+import ImageClassifier from 'components/Models/ModelSpace/ImageClassifier';
 
 const modelConfig: ModelConfigMap = {
     inceptionv3: {
@@ -34,7 +34,7 @@ const modelConfig: ModelConfigMap = {
             }));
         },
 
-        component: ImageToText,
+        component: ImageClassifier,
     },
 
     resnet50: {
@@ -57,7 +57,7 @@ const modelConfig: ModelConfigMap = {
             return getTopKClasses(probsArray, PREDICTION_LABELS);
         },
 
-        component: ImageToText,
+        component: ImageClassifier,
     },
 
     /*
