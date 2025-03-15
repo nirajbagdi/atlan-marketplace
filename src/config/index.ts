@@ -19,14 +19,17 @@ const modelConfig: ModelConfigMap = {
         },
 
         async postprocess(predictions: tf.Tensor) {
-            const { indices } = tf.topk(predictions, 3);
-            const probsArray = indices.dataSync();
+            const probabilities = tf.softmax(predictions);
 
-            return [
-                PREDICTION_LABELS[probsArray[0]],
-                PREDICTION_LABELS[probsArray[1]],
-                PREDICTION_LABELS[probsArray[2]],
-            ];
+            const { indices, values } = tf.topk(probabilities, 3);
+
+            const topIndices = Array.from(indices.dataSync());
+            const topProbs = Array.from(values.dataSync());
+
+            return topIndices.map((index, i) => ({
+                className: PREDICTION_LABELS[index] || `Class ${index}`,
+                probability: (topProbs[i] * 100).toFixed(2) + '%',
+            }));
         },
     },
 
