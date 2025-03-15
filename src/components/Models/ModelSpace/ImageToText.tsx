@@ -14,7 +14,7 @@ type Props = {
 
 const ImageToText: React.FC<Props> = ({ model }) => {
     const [isProcessing, setIsProcessing] = useState(false);
-    const [outputText, setOutputText] = useState<string | null>(null);
+    const [predictions, setPredictions] = useState<string[]>([]);
     const [imageUrl, setImageUrl] = useState<string | null>(null);
 
     const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -39,7 +39,7 @@ const ImageToText: React.FC<Props> = ({ model }) => {
                 const predictions = loadedModel.predict(tensor) as tf.Tensor;
                 const result = await model.postprocess(predictions);
 
-                console.log(result);
+                setPredictions(result.map((r: any) => r.className));
             });
         } catch (error) {
             console.log('Error loading model or processing image');
@@ -78,7 +78,9 @@ const ImageToText: React.FC<Props> = ({ model }) => {
                 <button>{isProcessing ? 'Processing...' : 'Generate Text'}</button>
             )}
 
-            {outputText && <p className={styles.output}>{outputText}</p>}
+            {predictions.length > 0 && (
+                <p className={styles.output}>{predictions.join('\n')}</p>
+            )}
         </form>
     );
 };
