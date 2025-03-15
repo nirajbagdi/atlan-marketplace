@@ -4,7 +4,7 @@ type PreprocessFunction = (input: any) => tf.Tensor;
 
 type PostprocessFunction = (predictions: tf.Tensor) => Promise<any> | any;
 
-type BaseModelConfig = {
+export type BaseModelConfig = {
     inputType: 'image' | 'text';
     outputType: 'classification' | 'text';
     inputSize: number;
@@ -12,6 +12,7 @@ type BaseModelConfig = {
     fromTfHub?: boolean;
     preprocess: PreprocessFunction;
     postprocess: PostprocessFunction;
+    component: React.FC<{ model: BaseModelConfig }>;
 };
 
 export type ModelConfigMap = Record<string, BaseModelConfig>;

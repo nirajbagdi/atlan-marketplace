@@ -4,6 +4,8 @@ import { preprocessImage, getTopKClasses } from 'utils';
 import { PREDICTION_LABELS } from './labels';
 import { ModelConfigMap } from './types';
 
+import ImageToText from 'components/Models/ModelSpace/ImageToText';
+
 const modelConfig: ModelConfigMap = {
     inceptionv3: {
         inputType: 'image',
@@ -31,6 +33,8 @@ const modelConfig: ModelConfigMap = {
                 probability: (topProbs[i] * 100).toFixed(2) + '%',
             }));
         },
+
+        component: ImageToText,
     },
 
     resnet50: {
@@ -52,6 +56,8 @@ const modelConfig: ModelConfigMap = {
 
             return getTopKClasses(probsArray, PREDICTION_LABELS);
         },
+
+        component: ImageToText,
     },
 
     /*
