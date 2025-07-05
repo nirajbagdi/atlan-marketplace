@@ -1,31 +1,84 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import * as tf from '@tensorflow/tfjs';
 
 import { useAppCtx } from 'store/context';
+import modelConfig from 'config';
 
 import Breadcrumb from 'components/Layout/Breadcrumb';
-import ModelSpace from 'components/Models/ModelSpace';
 
 import styles from 'styles/components/_ModelSpace.module.scss';
 
 const TryItOut = () => {
-	const { modelSlug } = useParams();
-	const { findModelBySlug } = useAppCtx();
+    const { modelSlug } = useParams();
+    const { findModelBySlug } = useAppCtx();
 
-	const model = findModelBySlug(modelSlug!);
-	if (!model) return null;
+    const [loadedModel, setLoadedModel] = useState<tf.GraphModel | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
-	const breadcrumbLinks = [
-		{ label: 'Models', to: '/' },
-		{ label: model.name, to: `/models/${model.slug}` },
-		{ label: 'Try It Out', to: `/models/${model.slug}/try` },
-	];
+    const model = findModelBySlug(modelSlug!);
+    const modelEntry = modelConfig[modelSlug as keyof typeof modelConfig];
 
-	return (
-		<section className={styles.container}>
-			<Breadcrumb links={breadcrumbLinks} />
-			<ModelSpace />
-		</section>
-	);
+    const ModelComponent = modelEntry.component;
+
+    const breadcrumbLinks = [
+        { label: 'Models', to: '/' },
+        { label: model.name, to: `/models/${model.slug}` },
+        { label: 'Try It Out', to: `/models/${model.slug}/try` },
+    ];
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const tfModelInstance = await tf.loadGraphModel(modelEntry.baseUrl, {
+                    fromTFHub: modelEntry.fromTfHub,
+                });
+
+                setLoadedModel(tfModelInstance);
+            } catch (error) {
+                setError('Failed to load model. Please try again.');
+                console.error('Error loading model:', error);
+            }
+        })();
+    }, [modelEntry.baseUrl, modelEntry.fromTfHub]);
+
+    // TODO: Models with no processing option shouldn't show a "TryItOut" Page
+    if (!modelEntry || !modelEntry.component) {
+        return (
+            <section className={styles.container}>
+                <Breadcrumb links={breadcrumbLinks} />
+                <p>No Component Available</p>
+            </section>
+        );
+    }
+
+    return (
+        <section className={styles.container}>
+            <Breadcrumb links={breadcrumbLinks} />
+
+            <div className={styles.space}>
+                {!loadedModel && !error && (
+                    <p>
+                        Initializing <span>{model.name}...</span> Please wait.
+                    </p>
+                )}
+                {error && <p>{error}</p>}
+
+                {loadedModel && !error && (
+                    <div className={styles.modelContainer}>
+                        <p>
+                            <span>{model.name}</span> Loaded Successfully!
+                        </p>
+
+                        <ModelComponent
+                            model={modelEntry}
+                            loadedModel={loadedModel}
+                        />
+                    </div>
+                )}
+            </div>
+        </section>
+    );
 };
 
 export default TryItOut;

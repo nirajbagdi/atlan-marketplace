@@ -1,75 +1,80 @@
 html {
-	box-sizing: border-box;
-	font-size: 62.5%;
+    box-sizing: border-box;
+    font-size: 62.5%;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
-	margin: 0;
-	padding: 0;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
 }
 
 html::-webkit-scrollbar {
-	display: none;
+    display: none;
 }
 
 body {
-	min-height: 100vh;
+    min-height: 100vh;
 
-	font-family: $font;
-	font-size: 1.6rem;
-	color: $text;
+    font-family: $font;
+    font-size: 1.6rem;
+    color: $text;
 
-	background: $bg;
+    background: $bg;
 }
 
 button {
-	font: inherit;
-	border: none;
-	outline: none;
-	cursor: pointer;
+    font: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 a {
-	text-decoration: none;
-	color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 input,
 textarea {
-	font: inherit;
-	border: none;
-	outline: none;
+    font: inherit;
+    border: none;
+    outline: none;
 }
 
 .container {
-	@include page-container;
-	padding: 12.8rem 2.4rem 15rem 2.4rem;
+    @include page-container;
+    padding: 12.8rem 2.4rem 15rem 2.4rem;
 }
 
 .loader {
-	min-height: 100vh;
+    min-height: 100vh;
 
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-	svg {
-		width: 5rem;
-		height: 5rem;
-		fill: $primary;
-		animation: rotate 2s infinite linear;
-	}
+    svg {
+        width: 5rem;
+        height: 5rem;
+        fill: $primary;
+        animation: rotate 2s infinite linear;
+    }
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 @keyframes rotate {
-	0% {
-		transform: rotate(0);
-	}
+    0% {
+        transform: rotate(0);
+    }
 
-	100% {
-		transform: rotate(360deg);
-	}
+    100% {
+        transform: rotate(360deg);
+    }
 }

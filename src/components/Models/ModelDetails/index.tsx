@@ -4,49 +4,57 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import { TModel } from 'models';
-import ModelDetailsAside from './ModelDetailsAside';
+import modelConfig from 'config';
+
 import { ReactComponent as ExperimentIcon } from 'assets/experiment-icon.svg';
+import ModelDetailsAside from './ModelDetailsAside';
 
 import styles from 'styles/components/_ModelDetails.module.scss';
 
 type Props = {
-	model: TModel;
+    model: TModel;
 };
 
-const ModelDetails: React.FC<Props> = ({ model }) => (
-	<article className={styles.model}>
-		<header>
-			<h1>{model.name}</h1>
-			<span>{model.provider}</span>
-			<p>{model.summary}</p>
+const ModelDetails: React.FC<Props> = ({ model }) => {
+    const isTfModelAvailable = modelConfig[model.slug];
 
-			<button>
-				<Link to={`/models/${model.slug}/try`}>
-					<ExperimentIcon /> Try It Out
-				</Link>
-			</button>
-		</header>
+    return (
+        <article className={styles.model}>
+            <header>
+                <h1>{model.name}</h1>
+                <span>{model.provider}</span>
+                <p>{model.summary}</p>
 
-		<div className={styles.main}>
-			<section className={styles.details}>
-				<h2>Model Details</h2>
+                {isTfModelAvailable && (
+                    <button>
+                        <Link to={`/models/${model.slug}/try`}>
+                            <ExperimentIcon /> Try It Out
+                        </Link>
+                    </button>
+                )}
+            </header>
 
-				<ReactMarkdown children={model.description} />
-			</section>
+            <div className={styles.main}>
+                <section className={styles.details}>
+                    <h2>Model Details</h2>
 
-			<section className={styles.usage}>
-				<h2>Usage</h2>
+                    <ReactMarkdown children={model.description} />
+                </section>
 
-				<SyntaxHighlighter
-					language="javascript"
-					style={docco}
-					children={model.codeSnippet}
-				/>
-			</section>
-		</div>
+                <section className={styles.usage}>
+                    <h2>Usage</h2>
 
-		<ModelDetailsAside model={model} />
-	</article>
-);
+                    <SyntaxHighlighter
+                        language="javascript"
+                        style={docco}
+                        children={model.codeSnippet}
+                    />
+                </section>
+            </div>
+
+            <ModelDetailsAside model={model} />
+        </article>
+    );
+};
 
 export default ModelDetails;

@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios';
 
 import { TModel } from 'models';
 
-const URL = 'https://mocki.io/v1/8ba834b5-7bab-4f95-a16c-a4c020de368a';
+const URL = 'https://mocki.io/v1/f2492753-fd32-4227-9907-cab22a3e8399';
 
 export async function fetchModels(): Promise<TModel[]> {
     try {

@@ -1,67 +1,103 @@
 @import 'styles/base';
 
 .container {
-	@include page-container;
+    @include page-container;
 }
 
 .space {
-	margin-top: 6.4rem;
+    margin-top: 6.4rem;
 
-	button {
-		margin-top: 3.2rem;
-		@include button-styles;
-	}
+    button {
+        margin-top: 3.2rem;
+        @include button-styles;
+    }
 }
 
 .form {
-	.image {
-		width: 40rem;
-		margin-bottom: 0.6rem;
+    .image {
+        width: 40rem;
+        margin-bottom: 0.6rem;
 
-		img {
-			max-width: 100%;
-		}
-	}
+        img {
+            max-width: 100%;
+        }
+    }
 
-	.input {
-		display: inline-block;
+    .input {
+        display: inline-block;
 
-		input {
-			display: none;
-		}
+        input {
+            display: none;
+        }
 
-		label {
-			display: inline-block;
-			position: relative;
-			cursor: pointer;
+        label {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
 
-			background-color: $bg;
-			color: $primary;
-			font-weight: 500;
+            background-color: $bg;
+            color: $primary;
+            font-weight: 500;
 
-			@include centered-flex(0.8rem);
+            @include centered-flex(0.8rem);
 
-			svg {
-				width: 22px;
-			}
+            svg {
+                width: 22px;
+            }
 
-			&::before {
-				position: absolute;
-				content: '';
+            &::before {
+                position: absolute;
+                content: '';
 
-				bottom: -1px;
-				left: 0;
-				width: 100%;
-				height: 2px;
+                bottom: -1px;
+                left: 0;
+                width: 100%;
+                height: 2px;
 
-				background-color: $primary;
-			}
-		}
-	}
+                background-color: $primary;
+            }
+        }
+    }
 }
 
 .output {
-	font-size: 1.8rem;
-	color: $primary;
-	margin-top: 4.8rem;
+    font-size: 1.8rem;
+    color: $primary;
+    margin-top: 4.8rem;
+    white-space: pre-line;
+    text-transform: capitalize;
+
+    h3 {
+        margin-bottom: 1.2rem;
+    }
+
+    ol {
+        margin-left: 3.2rem;
+
+        li:not(:last-child) {
+            margin-bottom: 0.4rem;
+        }
+
+        li:first-child {
+            font-weight: 600;
+            color: #2b8a3e;
+            font-size: 2.2rem;
+        }
+    }
+}
+
+.container p {
+    font-size: 1.8rem;
+    color: $primary;
+
+    span {
+        font-weight: 600;
+        margin-right: 0.4rem;
+    }
+}
+
+.modelContainer {
+    & > p {
+        margin-bottom: 3.2rem;
+    }
 }

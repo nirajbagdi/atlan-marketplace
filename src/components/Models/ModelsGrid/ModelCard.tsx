@@ -2,48 +2,58 @@ import { Link } from 'react-router-dom';
 import { Variants, motion, cubicBezier } from 'framer-motion';
 
 import { TModel } from 'models';
+import modelConfig from 'config';
+
 import ModelStats from 'components/Models/ModelStats';
 
 import styles from 'styles/components/_ModelGrid.module.scss';
 
 type Props = {
-	model: TModel;
-	shouldTranslate?: boolean;
+    model: TModel;
+    shouldTranslate?: boolean;
 };
 
 const motionVariants: Variants = {
-	hover: {
-		scale: 1.02,
-		boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+    hover: {
+        scale: 1.02,
+        boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
 
-		transition: {
-			duration: 1,
-			ease: cubicBezier(0.165, 0.84, 0.44, 1),
-		},
-	},
+        transition: {
+            duration: 1,
+            ease: cubicBezier(0.165, 0.84, 0.44, 1),
+        },
+    },
 
-	tap: { scale: 0.98 },
+    tap: { scale: 0.98 },
 };
 
-const ModelCard: React.FC<Props> = ({ model, shouldTranslate }) => (
-	<motion.article
-		initial={{ translateY: shouldTranslate ? '6.4rem' : '0' }}
-		variants={motionVariants}
-		whileHover="hover"
-		whileTap="tap"
-		className={styles.card}
-	>
-		<Link to={`/models/${model.slug}`}>
-			<header>
-				<p className={styles.name}>{model.name}</p>
-				<span className={styles.category}>{model.category}</span>
-			</header>
+const ModelCard: React.FC<Props> = ({ model, shouldTranslate }) => {
+    const isTfModelAvailable = modelConfig[model.slug];
 
-			<p className={styles.summary}>{model.summary}</p>
+    return (
+        <motion.article
+            initial={{ translateY: shouldTranslate ? '6.4rem' : '0' }}
+            variants={motionVariants}
+            whileHover="hover"
+            whileTap="tap"
+            className={styles.card}
+        >
+            <Link to={`/models/${model.slug}`}>
+                <header>
+                    <p className={styles.name}>{model.name}</p>
+                    <span className={styles.category}>{model.category}</span>
+                </header>
 
-			<ModelStats noOfLikes={model.stats.likes} noOfDownloads={model.stats.downloads} />
-		</Link>
-	</motion.article>
-);
+                <p className={styles.summary}>{model.summary}</p>
+
+                <ModelStats
+                    noOfLikes={model.stats.likes}
+                    noOfDownloads={model.stats.downloads}
+                    isAvailableToPlay={!!isTfModelAvailable}
+                />
+            </Link>
+        </motion.article>
+    );
+};
 
 export default ModelCard;
