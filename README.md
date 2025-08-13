@@ -4,7 +4,7 @@
 
 An AI model marketplace application showcasing various models deployed by organizations and developers.
 
-Leveraged [Mocki.io](https://mocki.io/) for a mock API to enrich the interface with model data.
+Leveraged [JSONBin.io](https://jsonbin.io/) for a mock API to enrich the interface with model data.
 
 Experience the live application [here](https://atlan-marketplace.netlify.app/).
 
